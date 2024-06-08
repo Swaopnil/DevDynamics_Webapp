@@ -8,9 +8,10 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 
 type Props = {
   data: forecastType;
+  onBack: () => void; // Add this line to define the onBack prop
 };
 
-const WeatherCharts = ({ data }: Props) => {
+const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the destructuring
   const labels = data.list.map((item) => new Date(item.dt * 1000).toLocaleTimeString());
 
   const temperatureData = {
@@ -64,10 +65,6 @@ const WeatherCharts = ({ data }: Props) => {
     ],
   };
 
-  const handleButtonClick = () => {
-    window.location.reload();
-  };
-
   return (
     <div className="weather-charts-container">
       <div className="chart-wrapper">
@@ -86,11 +83,9 @@ const WeatherCharts = ({ data }: Props) => {
         <h2>Precipitation Probability</h2>
         <Pie className="chart" data={precipitationData} />
       </div>
-      <div className="search-button-wrapper">
-        <button className="search-button" onClick={handleButtonClick}>
-          Search Another City
-        </button>
-      </div>
+      <button className="search-button" onClick={onBack}>
+        Search Another City
+      </button>
     </div>
   );
 };
