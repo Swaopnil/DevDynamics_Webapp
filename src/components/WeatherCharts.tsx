@@ -4,16 +4,18 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { forecastType } from './../types';
 import "./chart.css";
 
+// Register the necessary components for ChartJS
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend);
 
 type Props = {
   data: forecastType;
-  onBack: () => void; // Add this line to define the onBack prop
+  onBack: () => void; // Define the onBack prop
 };
 
 const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the destructuring
   const labels = data.list.map((item) => new Date(item.dt * 1000).toLocaleTimeString());
 
+  // Data for the temperature chart
   const temperatureData = {
     labels,
     datasets: [
@@ -26,6 +28,7 @@ const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the de
     ],
   };
 
+  // Data for the humidity chart
   const humidityData = {
     labels,
     datasets: [
@@ -38,6 +41,7 @@ const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the de
     ],
   };
 
+  // Data for the wind speed chart
   const windData = {
     labels,
     datasets: [
@@ -50,6 +54,7 @@ const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the de
     ],
   };
 
+  // Data for the precipitation probability chart
   const precipitationData = {
     labels: ['No Rain', 'Rain'],
     datasets: [
@@ -91,3 +96,11 @@ const WeatherCharts = ({ data, onBack }: Props) => { // Include onBack in the de
 };
 
 export default WeatherCharts;
+
+// explanation
+// ChartJS Setup: Registers necessary components for ChartJS.
+// Prop Types: Defines the Props type, including data for the forecast and onBack for the back button.
+// Labels: Generates labels for the charts from the forecast data.
+// Chart Data: Defines data objects for temperature, humidity, wind speed, and precipitation probability charts.
+// Rendering: Uses Line, Bar, and Pie components from react-chartjs-2 to render the charts with the defined data.
+// Back Button: Adds a button to go back to the search input, using the onBack prop.
