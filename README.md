@@ -1,39 +1,55 @@
-This repository is using ReactJS, TypeScript and TailwindCSS. It also runs on node 18 (see .nvmrc) and has a formatter - prettier. If you're running this for the first time - please ensure you have nvm (node version manager).
+## How to Set Up and Run the Project on Windows
 
-## How To Run
+This project uses ReactJS, TypeScript, and TailwindCSS. It also requires Node.js version 18 and uses Prettier for code formatting. To get started, follow these steps:
 
-If you don't have nvm installed, run the following command:
-Steps to Install and Set Up nvm-windows
-Download nvm-windows:
-
-Go to the nvm-windows releases page and download the nvm-setup.zip file for the latest version.
-Extract and Run the Installer:
-
-Extract the downloaded zip file and run the nvm-setup.exe installer.
-Follow Installation Instructions:
-
-Follow the prompts provided by the installer to complete the installation.
-Check Environment Variables:
-
-Ensure that the path to the nvm executable is added to your system's PATH environment variable. This is typically handled by the installer, but you can verify it manually:
-
-Open the Start Menu and search for "Environment Variables" and select "Edit the system environment variables."
+## 1. Install NVM (Node Version Manager) for Windows
+   
+Step 1: Download NVM for Windows
+Go to the nvm-windows releases page.
+Download the nvm-setup.zip file for the latest version.
+Step 2: Extract and Run the Installer
+Extract the downloaded zip file.
+Run the nvm-setup.exe installer.
+Step 3: Follow Installation Instructions
+Follow the prompts in the installer to complete the installation.
+Step 4: Check Environment Variables
+Open the Start Menu and search for "Environment Variables."
+Select "Edit the system environment variables."
 In the System Properties window, click on "Environment Variables."
 Under "System variables," find and select the Path variable, then click "Edit."
-Ensure that the path to your nvm installation (e.g., C:\Program Files\nvm) is listed. If not, add it.
-Open a New Command Prompt or PowerShell:
+Ensure the path to your NVM installation (e.g., C:\Program Files\nvm) is listed. If not, add it manually.
 
-After installation and ensuring the PATH is set correctly, open a new Command Prompt or PowerShell window (to make sure the environment variables are reloaded).
-Verify Installation:
+## 2. Verify NVM Installation
+Open a new Command Prompt or PowerShell window.
+Run the following command to check if NVM is installed correctly:
+nvm --version
 
-Run the following command to verify that nvm is installed correctly:
-sh nvm version
-`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
-After you got nvm installed on your machine, run `nvm i` and then `nvm use` (to have the correct nodeJs version)
+## 3. Clone the Git Repository
+Open a Command Prompt or PowerShell window.
+Navigate to the directory where you want to clone the repository.
+Run:
+git clone <repository_url>
+(Replace <repository_url> with the URL of the repository you want to clone.)
 
-Once you have the correct node version, run `npm i` to get all the required dependencies installed
 
-After everything is installed, run `npm run start` and navigate to http://localhost:3000
+## 4. Set Up Node.js with NVM
+Change to the project directory:
+cd <project_directory>
+(Replace <project_directory> with the name of your project directory.)
+nvm use <version>
+(mention the version in .nvmrc file)
+
+## 5. Install Project Dependencies
+In the project directory, run:
+npm install
+
+
+## 6. Run the Project
+Start the development server:
+npm run start
+
+Open your web browser and navigate to http://localhost:3000 to see the project running.
+
 
 ## API Calls
 
