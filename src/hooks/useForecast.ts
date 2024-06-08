@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { optionType, forecastType } from './../types/index';
 
-const BASE_URL = 'http://api.openweathermap.org';
+const BASE_URL = 'https://api.openweathermap.org';
 
 const useForecast = () => {
   const [city, setCity] = useState<optionType | null>(null);
@@ -36,6 +36,7 @@ const useForecast = () => {
       const response = await fetch(
         `${BASE_URL}/data/2.5/forecast?lat=${selectedCity.lat}&lon=${selectedCity.lon}&units=metric&lang=en&appid=${process.env.REACT_APP_API_KEY}`
       );
+      
       if (!response.ok) {
         throw new Error('Failed to fetch forecast');
       }
