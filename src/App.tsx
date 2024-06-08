@@ -8,7 +8,7 @@ const App = (): JSX.Element => {
   const [showCharts, setShowCharts] = useState(false);
 
   return (
-    <main className="flex justify-center items-center bg-gradient-to-br from-sky-400 via-rose-400 to-lime-400 h-[100vh] w-full">
+    <main className="flex justify-center items-center bg-gradient-to-br from-lime-400 via-rose-400 to-sky-400 h-[100vh] w-full">
       {showCharts && forecast ? (
         <WeatherCharts data={forecast} onBack={() => setShowCharts(false)} /> // Pass onBack prop
       ) : (
